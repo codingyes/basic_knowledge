@@ -19,3 +19,11 @@ init进程启动后，还会启动一些重要的守护进程。usbd进程、adb
 Runtime进程首先初始化服务管理器（Service Manager），并把它注册为绑定服务（Binder services）的默认上下文管理器，负责绑定服务的注册与查找。
 ### 启动本地服务
 ### 启动Home Laucher
+
+## 安卓内存泄漏
+https://juejin.cn/post/6844904067534159880
+
+## 安卓隐私合规检测
+https://juejin.cn/post/7213642622074273849
+
+https://github.com/allenymt/PrivacySentry
