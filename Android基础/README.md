@@ -2,6 +2,11 @@
 ## 四大组件
 ### Activity
 用户的可视化界面
+#### 启动模式
+* standard 标准模式，始终创建新实例，并加在当前栈上
+* singleTop 栈顶模式，和标准模式几乎一致，只是当要开启的activity已经处于task栈顶，系统不会创建新实例，而是直接复用栈顶
+* singleTask 
+* singleInstance 
 ### Service
 没有用户界面的后台活动，用户切换到其他应用，也会在后台保持活动
 ### Content Provider
