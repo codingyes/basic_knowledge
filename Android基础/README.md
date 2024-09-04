@@ -5,8 +5,27 @@
 #### 启动模式
 * standard 标准模式，始终创建新实例，并加在当前栈上
 * singleTop 栈顶模式，和标准模式几乎一致，只是当要开启的activity已经处于task栈顶，系统不会创建新实例，而是直接复用栈顶
-* singleTask 
-* singleInstance 
+
+* singleTask 特点
+
+1）默认情况下，开启singleTask的Activity并不会创建新任务，要配合android:taskAffinity来决定是否创建新任务。
+
+2）在任务栈中先判断是否有Activity实例，若不存在，则直接在任务栈中创建Activity实例；若存在，则从任务栈中通过onNewIntent()激活该Activity实例，并将该实例上面的其他Activity实例给清空。
+
+3）可以通过android:taskAffinity在另外一个应用中复用任务栈。
+
+4）在Activity实例所在的任务栈中，该实例有且仅有一个。
+
+* singleInstance 特点
+
+1）独占一个任务栈，该任务栈中有且仅有该Activity实例
+
+2）整个系统就只有一个实例。
+
+3）被singleIntance的Activity启动的其他Activity，默认的在包名的任务栈中，如果配合android:taskAffinity，也可以新的任务栈中创建的实例。
+
+4）被singleIntance的Activity启动的其他Activity，一定不在singleInstance的Activity所在的栈中，其他Activity的实例的创建和使用取决于该Activity设置的launchMode和android:taskAffinity
+
 ### Service
 没有用户界面的后台活动，用户切换到其他应用，也会在后台保持活动
 ### Content Provider
